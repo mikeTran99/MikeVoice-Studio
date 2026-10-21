@@ -1,4 +1,4 @@
-# Hướng dẫn sử dụng cho khách hàng — Mike Voice Studio 4.1.1
+# Hướng dẫn sử dụng cho khách hàng — Mike Voice Studio 4.2.0
 
 ## 1. Giới thiệu
 
@@ -87,6 +87,17 @@ không nằm trong tệp văn bản và luôn được che trong nhật ký.
    audio dự án — nằm trong **thư mục engine**.
 3. Mặc định thư mục engine ở `<ổ của app>:\MikeVoiceStudio\offline` (app ở ổ C thì ở `%LOCALAPPDATA%`). Muốn để ổ khác:
    **Đổi thư mục engine** trước khi cài.
+
+## 5b. Hiệu năng, thư mục đầu ra và nhập giọng (mới ở 4.2)
+
+- **Phần cứng & Hiệu năng**: **CHUNG › Engine và Model › Phần cứng & Hiệu năng**. App tự dò máy và chọn cấu hình
+  (GPU mạnh / GPU yếu / chỉ CPU). Chọn preset **Nháp** (nhanh, để nghe thử), **Cân bằng** hoặc **Chất lượng** (bản cuối).
+  Mục **Nâng cao** cho chỉnh từng tham số; nút **↺** trả về giá trị tự chọn. **Đo tốc độ máy này** tạo 3 câu mẫu để đo.
+  Máy không có GPU vẫn chạy nhưng chậm hơn nhiều lần.
+- **Nhiều câu cùng lúc**: dự án offline tạo các câu song song; thiếu VRAM thì app tự giảm số câu chạy cùng lúc.
+- **Thư mục đầu ra**: ở các trang tạo giọng, chọn thư mục nhận kết quả (có thể trên ổ khác), đặt **mẫu tên tệp**, và bật
+  **mỗi câu một tệp** nếu muốn. App không ghi đè tệp đã có (thêm số thứ tự).
+- **Nhập giọng**: ở **Giọng của tôi**, nhập tệp `.vcp` của G-Labs, tệp âm thanh, hoặc cả một thư mục.
 
 ## 6. Cập nhật và gỡ cài đặt
 

@@ -1,5 +1,23 @@
 # Nhật ký thay đổi — Mike Voice Studio
 
+## 4.2.0 — 21/10/2026
+**Mới: tự tinh chỉnh theo từng máy, tạo nhiều câu song song, thư mục đầu ra, nhập giọng đa định dạng**
+- **Tinh chỉnh theo từng máy**: app dò phần cứng (CPU, RAM, GPU/VRAM, bf16) và tự chọn thiết bị, độ chính xác, số luồng,
+  mức song song theo cấu hình `gpu_high` / `gpu_low` / `cpu` — máy không có GPU vẫn chạy được. Thẻ **Engine › Phần cứng &
+  Hiệu năng** có preset **Nháp / Cân bằng / Chất lượng**, mục **Nâng cao** (mọi tham số tạo giọng và nhận dạng đều chỉnh
+  được, nút ↺ trả về giá trị tự chọn) và nút **Đo tốc độ máy này**.
+- **Tạo nhiều câu offline song song** (`/tts/batch`): tự giảm một nửa mức song song khi thiếu VRAM; engine không nạp lại
+  giữa các việc.
+- **Thư mục đầu ra, mẫu đặt tên, mỗi câu một tệp**: chọn thư mục nhận kết quả (kể cả ổ khác), đặt tên theo mẫu, xuất mỗi
+  câu thành một tệp; không bao giờ ghi đè bản đã xuất.
+- **Nhập giọng đa định dạng**: tệp `.vcp` của G-Labs (nạp an toàn, `weights_only`), tệp âm thanh, hoặc cả một thư mục.
+- **Sửa lỗi sau review**: Slide giao đúng thư mục đầu ra, ép được CUDA, giữ tuỳ chọn "không bao giờ nhả engine", `.vcp`
+  được kiểm tra chặt hơn.
+- **Số đo thật (RTX 3050 6 GB Laptop, 8 nhân/12 luồng, 15,7 GB RAM, bản e2e `-m e2e`)**: khởi động engine 0,6 s; đọc câu
+  tiếng Việt 20,5 s (2,9 s âm thanh, gồm nạp model); trộn dự án 9,5 s; 3 câu song song (c=3) 16,1 s so với 19,6 s tuần
+  tự; nhập 6 giọng `.vcp` 24,7 s rồi đọc thử 2,3 s; chỉ CPU: lần đầu 150 s (gồm nạp model), lần sau 154 s cho 1,6 s âm
+  thanh (RTF ≈ 96) — CPU chỉ nên dùng khi không có GPU.
+
 ## 4.1.1 — 17/10/2026
 **Engine offline chạy ổn định, điểm Vbee đúng, tách kho giọng, bản dựng native Nuitka**
 - **Engine offline hết lỗi junction**: không còn phụ thuộc junction của uv trong `pyvenv.cfg` (lỗi Windows

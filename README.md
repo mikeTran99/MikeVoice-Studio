@@ -29,7 +29,7 @@
   <a href="#-giấy-phép--thành-phần-đi-kèm">⚖️ Giấy phép</a>
 </p>
 
-> **Bản hiện tại: [4.1.1 · 17/10/2026](https://github.com/mikeTran99/MikeVoice-Studio/releases/latest).** Engine offline hết lỗi *junction* của uv và tự phục hồi; điểm Vbee chỉ hiện khi đã đăng nhập; **tách kho giọng** OFFLINE / ONLINE; bản dựng **native Nuitka**. Xem [CHANGELOG.md](CHANGELOG.md).
+> **Bản hiện tại: [4.2.0 · 21/10/2026](https://github.com/mikeTran99/MikeVoice-Studio/releases/latest).** **Tự tinh chỉnh theo từng máy** (dò phần cứng, preset Nháp / Cân bằng / Chất lượng, tham số Nâng cao, đo tốc độ máy); **tạo nhiều câu offline song song**; **thư mục đầu ra + mẫu đặt tên + mỗi câu một tệp**; **nhập giọng đa định dạng** (`.vcp` G-Labs, tệp âm thanh, cả thư mục). Xem [CHANGELOG.md](CHANGELOG.md).
 
 <p align="center"><img src="docs/anh/cua-so-chinh-v4.1.1.png" alt="Cửa sổ chính của Mike Voice Studio 4.1.1 — menu ONLINE · OFFLINE · CHUNG" width="92%"></p>
 
@@ -80,7 +80,7 @@ Menu dọc bên trái chia ba nhóm. Rê chuột lên từng mục để biết 
 | **Lồng tiếng theo phụ đề** | Đọc `.srt` khớp đúng mốc thời gian | như trên |
 | **Thuyết minh slide** | Đọc ghi chú (không có thì chữ trên slide) của `.pptx`, tạo audio từng slide theo tốc độ đọc, xuất **WAV + .srt**, **PPTX có thuyết minh**, **video MP4** (cần PowerPoint) | như trên |
 | **Giọng → Chữ (Whisper)** | Nhận dạng trên máy, **chia lại phụ đề** không cần nhận dạng lại, nút *Lồng tiếng lại* | Miễn phí |
-| **Giọng của tôi** | **Sao chép giọng** từ tệp audio / video (tự chọn đoạn rõ nhất, tự nhận lời), **thiết kế giọng bằng mô tả** (giới tính · tuổi · cao độ · thì thầm), 11 giọng có sẵn, gói `.vcp`, sao lưu kho | Miễn phí |
+| **Giọng của tôi** | **Nhập giọng đa định dạng** (`.vcp` G-Labs, tệp âm thanh, cả thư mục); **sao chép giọng** từ tệp audio / video (tự chọn đoạn rõ nhất, tự nhận lời), **thiết kế giọng bằng mô tả** (giới tính · tuổi · cao độ · thì thầm), 11 giọng có sẵn, gói `.vcp`, sao lưu kho | Miễn phí |
 
 <table>
 <tr>
@@ -91,12 +91,20 @@ Menu dọc bên trái chia ba nhóm. Rê chuột lên từng mục để biết 
 
 <p align="center"><img src="docs/anh/giong-offline-mien-phi.png" alt="Nhãn giọng OFFLINE · miễn phí" width="38%"><br><sub>Mỗi giọng có nhãn <b>OFFLINE · miễn phí</b> hoặc <b>ONLINE · tốn điểm</b>; kho giọng OFFLINE chỉ liệt kê giọng offline, kho ONLINE chỉ liệt kê giọng online.</sub></p>
 
+<table>
+<tr>
+<td width="50%"><img src="docs/anh/phan-cung-hieu-nang.png" alt="Tab Phần cứng & Hiệu năng"><br><sub><b>Phần cứng & Hiệu năng</b> — tự dò máy, đo tốc độ, tham số Nâng cao</sub></td>
+<td width="50%"><img src="docs/anh/chat-luong-preset.png" alt="Preset chất lượng Nháp / Cân bằng / Chất lượng"><br><sub><b>Preset chất lượng</b> — Nháp · Cân bằng · Chất lượng, thư mục đầu ra</sub></td>
+</tr>
+</table>
+
 ### ⚪ CHUNG
 
 | Mục | Làm được gì |
 |---|---|
 | **Lịch sử** | Mọi tệp đã tạo và đã nhận dạng |
-| **Engine và Model** | Cài **engine offline** bằng một nút, chọn model AI, phần cứng (GPU / CPU), đổi thư mục engine, **REST API cục bộ** có `X-API-Key` cho n8n / Make / Zapier |
+| **Engine và Model** | Cài **engine offline** bằng một nút, chọn model AI, đổi thư mục engine, **REST API cục bộ** có `X-API-Key` cho n8n / Make / Zapier |
+| **Phần cứng & Hiệu năng** (tab trong *Engine và Model*) | App **tự dò máy** (CPU, RAM, GPU/VRAM) và chọn cấu hình GPU mạnh / GPU yếu / chỉ CPU; preset **Nháp · Cân bằng · Chất lượng**, mục **Nâng cao** chỉnh từng tham số (↺ về mặc định), nút **Đo tốc độ máy này** |
 | **Nhật ký** | Mọi lượt gọi và lỗi; **Xuất .txt** để gửi khi báo lỗi — Token và App ID luôn được che |
 | **Cài đặt** | Kết nối Vbee, 5 bộ màu, Tiếng Việt / English (đổi nóng), cỡ chữ |
 
@@ -236,6 +244,7 @@ Mở <b>CHUNG › Nhật ký → Xuất .txt</b> rồi đính kèm khi mở Issu
 **Mike Voice Studio** is a Windows 10/11 desktop app for text-to-speech, voice dubbing, speech-to-text and subtitle translation, with a Vietnamese/English interface. It works both **online** and **offline**:
 
 - **ONLINE (needs internet):** Vbee studio (1,700+ voices, billed in Vbee credits), cloud voices (Windows, Edge, OpenAI, Google Gemini), Vbee speech-to-text, and subtitle translation with ChatGPT / Gemini (billed to your own OpenAI / Google account).
+- **New in 4.2:** per-machine tuning (hardware probe, Draft/Balanced/Quality presets, Advanced parameters, speed test), concurrent offline sentences, output folder + name templates + one file per sentence, multi-format voice import.
 - **OFFLINE (on your PC, free):** read text with a different voice per sentence, group dialogue with per-character voice and speed, dubbing from `.srt`, PowerPoint slide narration (WAV + .srt, PPTX, MP4), Whisper transcription with subtitle re-chunking, voice cloning and voice design. Powered by OmniVoice and Whisper.
 - **Requirements:** Windows 10/11 64-bit. An NVIDIA GPU is recommended for offline mode (CPU works, slower). The offline engine (~3 GB, Python + PyTorch CUDA) is downloaded on first use into a folder on a non-system drive; models follow.
 - **Install:** download `MikeVoice-Setup.exe` from [Releases](https://github.com/mikeTran99/MikeVoice-Studio/releases/latest), verify it against `SHA256SUMS.txt`. The build is **unsigned**, so SmartScreen may warn on first run (More info → Run anyway). Updating keeps your data; uninstalling keeps data and the offline engine.
